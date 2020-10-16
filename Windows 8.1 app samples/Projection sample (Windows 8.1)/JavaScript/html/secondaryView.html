@@ -1,0 +1,31 @@
+﻿<!--
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="//Microsoft.WinJS.2.0.Preview/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0.Preview/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0.Preview/js/ui.js"></script>
+
+    <link rel="stylesheet" href="/css/secondaryView.css" />
+    <script src="/js/viewLifetimeControl.js"></script>
+    <script src="/js/secondaryView.js"></script>
+</head>
+<body>
+    <h1>This is a Presentation View</h1>
+    <p><label for="titleBox">Projection Window Title (appears in Presentation Views):</label></p>
+    <div><input type="text" id="titleBox"/><button class="normal" id="setTitleButton">Set Title</button><button class="normal" id="clearTitleButton">Clear Title</button></div>   
+    <p>
+    It may not always be appropriate to offer the user the option to project the app onto a secondary display, especially if no such a display is available.
+    Your application can query for the presence of a seondary display, and listen for when a display is attached or detached.
+    </p>
+    <div>
+    <input type="text" id="queryResultBox" aria-setsize="100"/>
+    <button class="normal" id="secondMonitorAvailableButton">Second monitor available?</button><button class="normal" id="resumeProjectionButton">Project to External Monitor</button></div>   
+    <div><button  class="wide" id="swapDisplayButton">Swap Views</button><button class="wide" id="stopProjectionButton">Stop Projection</button></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- WinJS references -->
+    <link rel="stylesheet" href="//Microsoft.WinJS.2.0.Preview/css/ui-light.css" />
+    <script src="//Microsoft.WinJS.2.0.Preview/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0.Preview/js/ui.js"></script>
+    <title></title>
+    <script src="/js/sendTextTile.js"></script>
+</head>
+<body>
+    <div data-win-control="SdkSample.ScenarioInput">
+        <h3>Live Tiles are the representation of an application in Start and you can use tile and badge 
+            notifications to display new, relevant, and tailored content to the user.
+            <br />
+        </h3>
+        <p>
+            Tile notifications are specified in an XML format and contain text and images in a pre-defined layout.
+            <br />
+            <br />
+            Applications must always include a square (square150x150) logo in the manifest. Similarly, if an application
+            wants to use wide (wide310x150) templates, it MUST include a wide (wide310x150) logo with it as well.
+            Applications that want to use square310x310 templates MUST include both wide310x150 and square310x310 logos.
+
+            This pattern is STRONGLY RECOMMENDED since users decide what size your application's tile will be.
+            <br />
+            <br />
+            Given below are two different use cases. Before you send the notifications make sure that you pin the tile to your start screen. 
+            Once you send the notification check how the pinned tile shows those updates.
+        </p>
+
+        <h3>First Scenario:</h3>
+        This scenario demonstrates how you can send a tile notification with just text using the Notifications Extensions Library methods.
+        <br />
+        <button id="sendTileTextNotification">Send tile notification with text</button>
+        <button id="clearTileNotification">Clear tile</button>
+        <br />
+        <br />
+
+        <h3>Second Scenario:</h3>
+        Since notifications are simply XML, you can create them in many different ways. For example, here we create notifications by constructing strings. 
+        As mentioned above, it's always a good idea to send XML for multiple tile sizes for the best user experience.
+        <br />
+        <button id="sendTileTextNotificationWithStringManipulation">Send tile notification created with strings</button>
+        <button id="sendTileTextNotificationWithXmlManipulation">Send tile notification created with XML</button>
+    </div>
+    <div data-win-control="SdkSample.ScenarioOutput">
+    </div>
+</body>
+</html>

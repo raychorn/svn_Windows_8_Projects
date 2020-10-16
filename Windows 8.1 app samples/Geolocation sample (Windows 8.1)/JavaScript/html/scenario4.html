@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/scenario4.css" />
+    <script src="/js/scenario4.js"></script>
+</head>
+<body>
+    <div data-win-control="SdkSample.ScenarioInput">
+        <p>Geofence API allows applications to add, list, and remove geofences that will be monitored by the system.</p>
+        <button class="action" id="createGeofenceButton">Create Geofence</button>
+    </div>
+    <div data-win-control="SdkSample.ScenarioOutput">
+        <div style="display: -ms-grid; -ms-grid-columns: auto auto; -ms-grid-rows: auto">
+            <div style="-ms-grid-column: 1; -ms-grid-row: 1; display: -ms-grid; -ms-grid-columns: 100px auto; -ms-grid-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                <div style="-ms-grid-column: 1; -ms-grid-row: 1">Name</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 1">
+                    <input style="margin-left: 10px; width: 200px" id="name"/>
+                    <span id="charCount">0 characters</span>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 2">Latitude</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 2">
+                    <input style="margin-left: 10px; width: 160px" maxlength="11" id="latitude"/>
+                    <span style="margin-left: 10px">-90 to 90 degrees</span>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 3">Longitude</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 3">
+                    <input style="margin-left: 10px; width: 160px" maxlength="12" id="longitude"/>
+                    <span style="margin-left: 10px">-180 to 180 degrees</span>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 4">Radius</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 4">
+                    <input style="margin-left: 10px; width: 160px" maxlength="12" id="radius"/>
+                    <span style="margin-left: 10px">.1 meters to 10018754.3 meters</span>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 5">Dwell Time</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 5">
+                    <div style="display: -ms-grid; -ms-grid-columns: 160px 60px 160px 60px; -ms-grid-rows: auto auto">
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 1" maxlength="3" id="dwellTimeDays"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 1">days</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 1" maxlength="2" id="dwellTimeHours"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 1">hours</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 2" maxlength="2" id="dwellTimeMinutes"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 2">minutes</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 2" maxlength="2" id="dwellTimeSeconds"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 2">seconds</div>
+                    </div>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 6">Start Time</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 6">
+                    <div style="display: -ms-grid; -ms-grid-columns: 160px 60px 160px 60px; -ms-grid-rows: auto auto auto">
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 1" maxlength="4" id="startTimeYear"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 1">year</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 1" maxlength="2" id="startTimeMonth"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 1">month</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 2" maxlength="2" id="startTimeDay"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 2">day</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 2" maxlength="2" id="startTimeHour"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 2">hour</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 3" maxlength="2" id="startTimeMinute"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 3">minute</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 3" maxlength="2" id="startTimeSecond"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 3">second</div>
+                    </div>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 7">Duration</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 7">
+                    <div style="display: -ms-grid; -ms-grid-columns: 160px 60px 160px 60px; -ms-grid-rows: auto auto">
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 1" maxlength="3" id="durationDays"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 1">days</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 1" maxlength="2" id="durationHours"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 1">hours</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 1; -ms-grid-row: 2" maxlength="2" id="durationMinutes"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 2; -ms-grid-row: 2">minutes</div>
+                        <input style="margin-left: 10px; -ms-grid-column: 3; -ms-grid-row: 2" maxlength="2" id="durationSeconds"/>
+                        <div   style="margin-left: 10px; -ms-grid-column: 4; -ms-grid-row: 2">seconds</div>
+                    </div>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 12">Events</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 12">
+                    <label class="checkboxLabel"><input style="margin-left: 10px" type="checkbox" id="geofenceEnter"/>Enter</label>
+                    <label class="checkboxLabel"><input style="margin-left: 10px" type="checkbox" id="geofenceExit"/>Exit</label>
+                    <label class="checkboxLabel"><input style="margin-left: 10px" type="checkbox" id="geofenceRemove"/>Remove</label>
+                </div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 13">
+                    <label class="checkboxLabel"><input style="margin-left: 10px" type="checkbox" id="geofenceSingleUse"/>Single Use</label>
+                </div>
+            </div>
+            <div style="-ms-grid-column: 2; -ms-grid-row: 1; display: -ms-grid; -ms-grid-columns: 100px auto; -ms-grid-rows: auto auto">
+                <div style="-ms-grid-column: 1; -ms-grid-row: 1">Registered Geofences</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 1">
+                    <div style="-ms-grid-column: 2; -ms-grid-row: 1">
+                        <div id="RegisteredGeofenceListView"
+                            class="win-selectionstylefilled"
+                            data-win-control="WinJS.UI.ListView"
+                            data-win-options="{selectionMode: 'single', tapBehavior: 'toggleSelect', swipeBehavior: 'none', layout: { type: WinJS.UI.ListLayout } }"
+                        ></div>
+                    </div>
+                    <span>
+                        <button class="action" id="removeGeofenceItem">Remove Selected Geofence</button>
+                    </span>
+                </div>
+                <div style="-ms-grid-column: 1; -ms-grid-row: 2">Geofence Events</div>
+                <div style="-ms-grid-column: 2; -ms-grid-row: 2">
+                    <div style="-ms-grid-column: 2; -ms-grid-row: 2">
+                        <div id="GeofenceEventsListView"
+                            class="win-selectionstylefilled"
+                            data-win-control="WinJS.UI.ListView"
+                            data-win-options="{selectionMode: 'single', tapBehavior: 'toggleSelect', swipeBehavior: 'none', layout: { type: WinJS.UI.ListLayout } }"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+﻿<!--
+THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/encryptdecrypt.css" />
+    <script src="/js/encryptdecrypt.js"></script>
+</head>
+<body>
+   <div data-win-control="SdkSample.ScenarioInput">
+        <p>Encrypt and Decrypt - This scenario demonstrates how to Encrypt and Decrypt data with the WinRT APIs for supported Algorithms and Key Sizes.</p>
+        <table>
+           <tr>
+               <td >
+                   <table style="width:200px;height:200px">
+                       <tr>
+                       <td style="width:200px;height:200px">
+                            <input type="radio" name="selectmethod" id="bEncryption" value="Encrypt\Decrypt" checked style="text-align:right">Encrypt\Decrypt</input>
+                               <br />
+                               <input type="radio" name="selectmethod" id="bDataProtection" value="Data Protection" style="text-align:left">Data Protection</input>
+                           </td>
+                           </tr>
+                   </table>
+                   <td id="encryptdata" style="width:750px;height:200px">
+                   <table id="spEncryption" style="width:750px;height:200px">
+                       <tr>
+                           <td style="width:750px;height:200px">
+                               <input type="radio" name="algotypes" id="bSymAlgs"  style="vertical-align: middle" value="Symmetric Algorithms">Symmetric Algorithms</input>
+                               <br />
+                               <input type="radio" name="algotypes" id="bAuthEncrypt" style="vertical-align: middle"  value="Authenticated Symmetric Algorithms">Authenticated Symmetric Algorithms</input>
+                               <br />
+                               <input type="radio" name="algotypes" id="bAsymAlgs" style="vertical-align: middle"  value="Asymmetric Algorithms"  checked="checked">Asymmetric Algorithms</input>
+                           </td>
+                           <td>&nbsp;</td>
+                           <td  rowspan="3" style="width:200px;height:200px">
+                               <select id="AlgorithmNames" name="AlgorithmName">
+                                   <option value="RSA_PKCS1">RSA_PKCS1</option>
+                                   <option value="RSA_OAEP_SHA1">RSA_OAEP_SHA1</option>
+                                    <option value="RSA_OAEP_SHA256">RSA_OAEP_SHA256</option>
+                                    <option value="RSA_OAEP_SHA384">RSA_OAEP_SHA384</option>
+                                    <option value="RSA_OAEP_SHA512">RSA_OAEP_SHA512</option>
+                               </select>
+                           </td>
+                           <td>&nbsp;</td>
+                           <td rowspan="3" style="width:200px;height:200px">
+                               <select id="KeySizes" name="KeySizes">
+                                   <option value="512">512</option>
+                                    <option value="1024">1024</option>
+                                    <option value="2048">2048</option>
+                                    <option value="4096">4096</option>
+                               </select>
+                           </td>
+                           <td>&nbsp;</td>
+                           <td rowspan="3">
+                               <button id="RunEncryption">Run Sample</button>
+                           </td>
+                       </tr>
+
+                   </table>
+               </td>
+               <td id="protectdata" style="width:600px;height:100px">
+                   <table id="spDataProtection" style="width:600px;height:100px">
+                       <tr>
+                           <td style="width:600px;height:100px">
+                               <input type="radio" name="inputtype" id="bFixedInput" value="Fixed Input" checked>Fixed Input</input>
+                               <br />
+                               <input type="radio" name="inputtype" id="bStreamInput" value="Stream Input">Stream Input</input>
+                           </td>
+                           <td style="width:100px;height:100px">&nbsp;</td>
+                           <td colspan="3" style="width:100px;height:200px">
+                               <input type="text" name="tbDescriptor" id="tbDescriptor" value="Local=user" />
+                           </td>
+                           <td>&nbsp;</td>
+                           <td colspan="3">
+                               <button id="RunDataProtection">Run Sample</button>
+                           </td>
+                       </tr>
+                   </table>
+               </td>
+           </tr>
+        </table>
+    </div>
+     <div data-win-control="SdkSample.ScenarioOutput" >  
+         <textarea id="ResultDisplay" style="width:680px;height: 680px; border-width: 0px" name="ResultDisplay" ></textarea> 
+     </div>  
+      
+</body>
+</html>

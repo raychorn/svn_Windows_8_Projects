@@ -1,0 +1,17 @@
+﻿h1 {
+    margin: 2%;
+    color: blue;
+}
+
+#titleBox {
+    width: 300px;
+}
+
+button.normal {
+    margin: 5px;
+}
+
+button.wide {
+    margin: 35px;
+}
+

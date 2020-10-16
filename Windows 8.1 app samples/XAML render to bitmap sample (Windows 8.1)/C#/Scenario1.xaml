@@ -1,0 +1,87 @@
+<!--
+//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+//
+//*********************************************************
+-->
+<common:LayoutAwarePage
+    x:Class="RenderToBitmap.Scenario1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RenderToBitmap"
+    xmlns:common="using:SDKTemplate.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top">    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                    RenderTargetBitmap enables taking a snapshot of a XAML element tree and using it as an ImageSource.
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                    Press the buttons to add text or shapes to the Grid control below, which can then be manipulated to move, scale, and rotate them.  Then, press "Save as image source" to take a static snapshot of the resulting XAML content and display it in an Image control.
+                </TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add Shape" Click="AddShape_Click" Margin="0,0,25,0" />
+                    <Button Content="Add Text:" Click="AddTextBlock_Click" />
+                    <TextBox x:Name="NewText" Width="200" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource BasicTextStyle}" VerticalAlignment="Center" Text="Rendered width (0 for default):" />
+                    <TextBox x:Name="WidthTextBox" Width="100" Margin="0,0,25,0" Text="0" />
+                    <TextBlock Style="{StaticResource BasicTextStyle}" VerticalAlignment="Center" Text="Rendered height (0 for default):" />
+                    <TextBox x:Name="HeightTextBox" Width="100" Text="0" />
+                    
+                </StackPanel>
+                <Button Content="Save as image source" Click="SaveImageSource_Click" HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the input section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="InputFullScreenLandscape"/>
+                    <VisualState x:Name="InputFilled"/>
+                    <VisualState x:Name="InputFullScreenPortrait"/>
+                    <VisualState x:Name="InputSnapped"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+
+        <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Height="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+                <!-- Content inside RenderedGrid will be rendered -->
+                <Grid x:Name="RenderedGrid" Height="500">
+                </Grid>
+            </Border>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock TextWrapping="Wrap" Style="{StaticResource BasicTextStyle}" HorizontalAlignment="Left">
+                    Result:
+                </TextBlock>
+                <Image x:Name="RenderedImage" Stretch="None" />
+            </StackPanel>            
+
+            <!-- Add Storyboards to the visual states below as necessary for supporting the various layouts for the output section -->
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="OutputFullScreenLandscape"/>
+                    <VisualState x:Name="OutputFilled"/>
+                    <VisualState x:Name="OutputFullScreenPortrait"/>
+                    <VisualState x:Name="OutputSnapped"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </Grid>
+</common:LayoutAwarePage>

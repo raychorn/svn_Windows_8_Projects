@@ -1,0 +1,43 @@
+﻿/*
+Copyright (c) Microsoft Corporation. All rights reserved
+*/
+
+/* styles */
+
+#verticalScrollingDiv {
+    overflow: auto;
+    height: 400px;
+    width: 300px;
+    border: solid 2px rgb(87, 41, 193)
+}
+
+#scrollingContentBlock {
+    height: 2000px;
+}
+
+#itemContent {
+    margin: 10px;
+}
+
+#scen2Item1.win-container
+{
+    width:400px;
+    height:200px;
+    float: left;
+    border: solid grey 1px;
+    margin-left: 10px;
+    margin-right: 100px;
+}
+
+#scen2Item2.win-container
+{
+    width:147px;
+    height:147px;
+    border: solid grey 1px;
+    margin: 10px;
+}
+
+#scen2DescriptionText {
+    padding-right: 30px;
+    padding-left: 10px;
+}

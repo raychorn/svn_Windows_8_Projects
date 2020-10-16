@@ -1,0 +1,37 @@
+﻿<!--
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/propertyMatches.css" />
+    <script src="/js/propertyMatches.js"></script>
+</head>
+<body>
+    <div data-win-control="SdkSample.ScenarioInput">
+        <p>This scenario shows how to find which parts of a specific property match an AQS query using the SemanticTextQuery.FindInProperty method</p>
+        <input type="text" id="queryBox" value="Author:Dolor OR Comment:'enim'"/>
+        <button id="find">Find</button><br /><br />
+        <table border="1">
+             <tr>
+             <th>PropertyName</th>
+             <th>PropertyValue</th>
+             </tr>
+             <tr>
+             <td>System.Title</td>
+             <td id="System.Title">Lorem Ipsum</td>
+             </tr>
+             <tr>
+             <td>System.Author</td>
+             <td id="System.Author">Dolor sit amet</td>
+             </tr>
+             <tr>
+             <td>System.Comment</td>
+             <td id="System.Comment">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</td>
+             </tr>
+         </table>   
+    </div>
+</body>
+</html>
